@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christmas sucks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F172A;
+    --midnight:#0B0F19;
+    --panel:#111C33;
+    --blue:#2563EB;
+    --cyan:#38BDF8;
+    --ink:#F1F5F9;
+    --muted:#94A3B8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--midnight);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:64px 24px;
+    position:relative;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  .bg-gif{
+    position:fixed;inset:0;z-index:-2;
+    background:url('background.gif') center center / cover no-repeat;
+    filter:blur(8px);
+    transform:scale(1.1); /* hides the blurred edge */
+  }
+  .bg-overlay{
+    position:fixed;inset:0;z-index:-1;
+    background:rgba(11,15,25,.4);
+  }
+  main{position:relative;width:100%;max-width:380px;}
+
+  .profile{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:40px;}
+  .avatar-ring{
+    width:96px;height:96px;border-radius:50%;padding:3px;margin-bottom:20px;
+    background:linear-gradient(135deg, var(--blue), var(--cyan));
+  }
+  .avatar-inner{
+    width:100%;height:100%;border-radius:50%;background:var(--panel);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .avatar-inner img{width:100%;height:100%;object-fit:cover;display:block;}
+  h1{
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:26px;margin-bottom:6px;
+    background:linear-gradient(100deg,var(--ink) 0%, var(--blue) 55%, var(--cyan) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .status{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted);}
+  .status-dot{
+    width:8px;height:8px;border-radius:50%;background:var(--cyan);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(56,189,248,.55); }
+    70%{ box-shadow:0 0 0 8px rgba(56,189,248,0); }
+    100%{ box-shadow:0 0 0 0 rgba(56,189,248,0); }
+  }
+
+  .links{display:flex;flex-direction:column;gap:14px;}
+  .link-card{
+    display:flex;align-items:center;gap:16px;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(17,28,51,.6);
+    border-radius:12px;
+    padding:16px 20px;
+    text-decoration:none;
+    color:inherit;
+    transition:all .3s ease;
+  }
+  .link-card:hover{
+    border-color:rgba(56,189,248,.55);
+    box-shadow:0 0 0 1px rgba(56,189,248,.15), 0 16px 36px -16px rgba(37,99,235,.5);
+    transform:translateY(-3px);
+  }
+  .icon-box{
+    width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.05);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .icon-box svg{width:18px;height:18px;stroke:var(--ink);}
+  .link-text{flex:1;text-align:left;}
+  .link-text .name{display:block;font-weight:600;font-size:14.5px;color:var(--ink);}
+  .link-text .handle{display:block;font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .arrow{color:var(--muted);font-size:14px;}
+
+  footer{
+    text-align:center;font-size:12.5px;color:var(--muted);margin-top:36px;
+  }
+
+  .reveal{
+    opacity:0;transform:translateY(14px);
+    animation:in .6s ease forwards;
+  }
+  @keyframes in{ to{ opacity:1; transform:translateY(0); } }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-gif"></div>
+<div class="bg-overlay"></div>
+
+<main>
+  <div class="profile reveal" style="animation-delay:.05s">
+    <div class="avatar-ring">
+      <div class="avatar-inner">
+        <img src="https://cdn.discordapp.com/avatars/1288732672075763716/cc6cbb38243cd1d71163e262979a2c7e.png?size=1024" alt="Groovy avatar">
+      </div>
+    </div>
+    <h1>Groovy</h1>
+    <p class="status"><span class="status-dot"></span>i dont know what to put here :)</p>
+  </div>
+
+  <div class="links">
+    <a href="#" class="link-card reveal" style="animation-delay:.1s">
+      <span class="icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M8 12h.01M16 12h.01M8 15c1.5 1 6.5 1 8 0"/></svg>
+      </span>
+      <span class="link-text">
+        <span class="name">Discord</span>
+        <span class="handle">goruvi</span>
+      </span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="#" class="link-card reveal" style="animation-delay:.15s">
+      <span class="icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4.36a9 9 0 0 1-2.83 1.08 4.52 4.52 0 0 0-7.7 4.13A12.8 12.8 0 0 1 2.9 1.64a4.52 4.52 0 0 0 1.4 6.03A4.47 4.47 0 0 1 2.3 7v.06a4.52 4.52 0 0 0 3.63 4.43 4.5 4.5 0 0 1-2 .08 4.53 4.53 0 0 0 4.22 3.14A9.06 9.06 0 0 1 1 16.65a12.76 12.76 0 0 0 6.92 2.03c8.3 0 12.85-6.88 12.85-12.85 0-.2 0-.39-.01-.58A9.2 9.2 0 0 0 23 3z"/></svg>
+      </span>
+      <span class="link-text">
+        <span class="name">X / Twitter</span>
+        <span class="handle">@TViet2911</span>
+      </span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="#" class="link-card reveal" style="animation-delay:.2s">
+      <span class="icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.5 6.2a2.8 2.8 0 0 0-2-2C18.7 3.7 12 3.7 12 3.7s-6.7 0-8.5.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-5.8z"/><path d="M9.8 15.3 15.5 12 9.8 8.7z" fill="var(--ink)" stroke="none"/></svg>
+      </span>
+      <span class="link-text">
+        <span class="name">YouTube</span>
+        <span class="handle">@viet_rhythm</span>
+      </span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="#" class="link-card reveal" style="animation-delay:.25s">
+      <span class="icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+      </span>
+      <span class="link-text">
+        <span class="name">GitHub</span>
+        <span class="handle">@tranviet2911</span>
+      </span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="#" class="link-card reveal" style="animation-delay:.3s">
+      <span class="icon-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+      </span>
+      <span class="link-text">
+        <span class="name">Email</span>
+        <span class="handle">vietrhythm.jp@gmail.com</span>
+      </span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <footer class="reveal" style="animation-delay:.35s">© 2026 Groovy</footer>
+</main>
+
+</body>
+</html>
